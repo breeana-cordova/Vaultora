@@ -39,5 +39,5 @@ All encryption and decryption happen **client-side**, using **AES-256-GCM** and 
 
 ### 1️⃣ Clone the repo
 ```bash
-git clone https://github.com/yourusername/vaultora.git
+git clone https://github.com/breeana-cordova/vaultora.git
 cd vaultora
