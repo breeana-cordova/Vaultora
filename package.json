@@ -1,0 +1,26 @@
+{
+  "name": "vaultora",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r   <img src=\"docs/logo-placeholder.svg\" alt=\"Vaultora Logo\" width=\"120\" height=\"120\" />\r </p>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breeana-cordova/Vaultora.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/breeana-cordova/Vaultora/issues"
+  },
+  "homepage": "https://github.com/breeana-cordova/Vaultora#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
