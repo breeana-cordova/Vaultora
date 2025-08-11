@@ -11,48 +11,48 @@ Please follow these guidelines to keep our project safe and maintainable.
 2. **Clone** your fork:
    ```bash
    git clone https://github.com/your-username/vaultora.git
-Create a feature branch:
+   ```
+3. **Create a feature branch:**
+   ```bash
+   git checkout -b feature/my-new-feature
+   ```
+4. **Make your changes** (ensure all tests pass).
+5. **Commit your changes:**
+   ```bash
+   git commit -m "feat: add my new feature"
+   ```
+6. **Push your branch and open a Pull Request.**
 
-bash
-Copy
-Edit
-git checkout -b feature/my-new-feature
-Make your changes (ensure tests pass).
+---
 
-Commit your changes:
+## 🔒 Security Considerations
 
-bash
-Copy
-Edit
-git commit -m "feat: add my new feature"
-Push your branch and open a Pull Request.
+- **Never commit secrets or sensitive data.**
+- Avoid introducing dependencies with known vulnerabilities (`npm audit`).
+- Follow our [SECURITY.md](./SECURITY.md) for responsible disclosure.
 
-🔒 Security Considerations
-Never commit secrets or sensitive data.
+---
 
-Avoid introducing dependencies with known vulnerabilities (run npm audit).
+## ✅ Code Style
 
-Follow our SECURITY.md for responsible disclosure.
+- Use Prettier and ESLint rules configured in the repo.
+- Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format:
+  - `feat`: new features
+  - `fix`: bug fixes
+  - `chore`: maintenance tasks
 
-✅ Code Style
-Use Prettier and ESLint rules configured in the repo.
+---
 
-Follow conventional commits format:
+## 🧪 Testing
 
-feat: new features
+- All new code **must include unit tests**.
+- Run tests before submitting a PR:
+  ```bash
+  npm test
+  ```
 
-fix: bug fixes
+---
 
-chore: maintenance tasks
+## 📜 License
 
-🧪 Testing
-All new code must include unit tests.
-
-Run tests before submitting a PR:
-
-bash
-Copy
-Edit
-npm test
-📜 License
 By contributing, you agree your code will be licensed under the same license as Vaultora (MIT unless otherwise specified).
