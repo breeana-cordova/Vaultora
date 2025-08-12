@@ -1,10 +1,10 @@
+// __tests__/app.test.js
 const request = require('supertest');
 const app = require('../app');
 
 describe('Vaultora API basic tests', () => {
-
   beforeAll(async () => {
-    // Create the login user in test DB
+    // ensure the user exists for the login test
     await request(app)
       .post('/register')
       .send({ username: 'loginuser', password: 'pass123' });
@@ -37,5 +37,4 @@ describe('Vaultora API basic tests', () => {
     expect(res.statusCode).toBe(404);
     expect(res.body).toHaveProperty('error');
   });
-
 });
