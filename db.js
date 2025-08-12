@@ -36,25 +36,25 @@ CREATE TABLE IF NOT EXISTS credentials (
 module.exports = {
   db,
   // helper: create user, returns { id, username } or throws
-  createUser: (username, passwordHash) => {
+  createUser: async (username, passwordHash) => {
     const stmt = db.prepare('INSERT INTO users (username, passwordHash) VALUES (?, ?)');
     const info = stmt.run(username, passwordHash);
     return { id: info.lastInsertRowid, username };
   },
   // helper: get user by username
-  getUserByUsername: (username) => {
+  getUserByUsername: async (username) => {
     return db.prepare('SELECT id, username, passwordHash FROM users WHERE username = ?').get(username);
   },
   // helper for credentials (we'll expand later)
-  insertCredential: (userId, service, username, passwordEncrypted, iv = null, tag = null) => {
+  insertCredential: async (userId, service, username, passwordEncrypted, iv = null, tag = null) => {
     const stmt = db.prepare('INSERT INTO credentials (userId, service, username, passwordEncrypted, iv, tag) VALUES (?, ?, ?, ?, ?, ?)');
     const info = stmt.run(userId, service, username, passwordEncrypted, iv, tag);
     return info.lastInsertRowid;
   },
-  getCredentialsByUser: (userId) => {
+  getCredentialsByUser: async (userId) => {
     return db.prepare('SELECT id, service, username, passwordEncrypted, iv, tag FROM credentials WHERE userId = ?').all(userId);
   },
-  deleteCredential: (id, userId) => {
+  deleteCredential: async (id, userId) => {
     const stmt = db.prepare('DELETE FROM credentials WHERE id = ? AND userId = ?');
     return stmt.run(id, userId).changes;
   }
