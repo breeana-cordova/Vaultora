@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "jest --passWithNoTests"
+  "start": "node index.js",
+  "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
