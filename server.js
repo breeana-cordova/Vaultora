@@ -1,6 +1,4 @@
+// server.js
 const app = require('./app');
-
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Vaultora API running at http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Vaultora running at http://localhost:${PORT}`));
