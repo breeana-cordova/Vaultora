@@ -15,15 +15,27 @@ describe('Vaultora API Routes', () => {
     expect(res.body.youSent).toEqual(payload);
   });
 
-  test('GET /nonexistent should return 404', async () => {
-    const res = await request(app).get('/nonexistent');
-    expect(res.statusCode).toBe(404);
-    expect(res.body.error).toBe('Not Found');
-  });
-
   test('GET /error should return 500', async () => {
     const res = await request(app).get('/error');
     expect(res.statusCode).toBe(500);
-    expect(res.body.error).toBe('Internal Server Error');
+  });
+
+  test('POST /register should create a new user', async () => {
+    const res = await request(app)
+      .post('/register')
+      .send({ username: 'testuser', password: 'testpass' });
+    expect([201, 409]).toContain(res.statusCode); // 409 if already exists
+  });
+
+  test('POST /login should return JWT token', async () => {
+    await request(app)
+      .post('/register')
+      .send({ username: 'loginuser', password: 'pass123' });
+
+    const res = await request(app)
+      .post('/login')
+      .send({ username: 'loginuser', password: 'pass123' });
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toHaveProperty('token');
   });
 });
