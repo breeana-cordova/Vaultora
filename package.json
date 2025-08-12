@@ -1,14 +1,14 @@
 {
   "name": "vaultora",
   "version": "1.0.0",
-  "description": "<p align=\"center\">\r   <img src=\"docs/logo-placeholder.svg\" alt=\"Vaultora Logo\" width=\"120\" height=\"120\" />\r </p>",
+  "description": "<p align=\"center\">\r <img src=\"docs/logo-placeholder.svg\" alt=\"Vaultora Logo\" width=\"120\" height=\"120\" />\r </p>",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-  "start": "node index.js",
-  "test": "jest --runInBand"
+    "start": "node index.js",
+    "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
@@ -25,11 +25,7 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "jest": "^29.7.0"
-=======
     "jest": "^30.0.5",
     "supertest": "^7.1.4"
->>>>>>> daca046 (Add jest and supertest for testing)
   }
 }
