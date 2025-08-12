@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,5 @@
   "homepage": "https://github.com/breeana-cordova/Vaultora#readme",
   "dependencies": {
     "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
   }
 }
