@@ -3,25 +3,30 @@ const app = express();
 
 app.use(express.json());
 
-// Root route
+// Example working route
 app.get('/', (req, res) => {
-  res.json({ status: 'ok' });
+  res.json({ message: 'Vaultora API is running' });
 });
 
-// Echo POST route
+// Example POST echo route
 app.post('/echo', (req, res) => {
-  res.json(req.body);
+  res.json({ youSent: req.body });
 });
 
-// 404 handler (must be last non-error middleware)
+// Simulated 500 error route
+app.get('/error', (req, res, next) => {
+  next(new Error('Simulated server failure'));
+});
+
+// 404 handler
 app.use((req, res) => {
-  res.status(404).json({ error: 'Not found' });
+  res.status(404).json({ error: 'Not Found' });
 });
 
-// Global error handler (optional but good practice)
+// 500 handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ error: 'Internal server error' });
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 module.exports = app;

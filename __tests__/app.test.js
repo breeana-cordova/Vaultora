@@ -1,27 +1,29 @@
 const request = require('supertest');
 const app = require('../app');
 
-describe('Vaultora API', () => {
-  it('GET / responds with a JSON status object', async () => {
+describe('Vaultora API Routes', () => {
+  test('GET / should return running message', async () => {
     const res = await request(app).get('/');
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual({ status: 'ok' });
+    expect(res.body.message).toBe('Vaultora API is running');
   });
 
-  it('POST /echo returns the same JSON sent', async () => {
-    const payload = { message: 'Hello Vaultora' };
-    const res = await request(app)
-      .post('/echo')
-      .send(payload)
-      .set('Content-Type', 'application/json');
-
+  test('POST /echo should return sent data', async () => {
+    const payload = { test: 'data' };
+    const res = await request(app).post('/echo').send(payload);
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual(payload);
+    expect(res.body.youSent).toEqual(payload);
   });
 
-  it('GET unknown route returns 404', async () => {
-    const res = await request(app).get('/does-not-exist');
+  test('GET /nonexistent should return 404', async () => {
+    const res = await request(app).get('/nonexistent');
     expect(res.statusCode).toBe(404);
-    expect(res.body).toEqual({ error: 'Not found' });
+    expect(res.body.error).toBe('Not Found');
+  });
+
+  test('GET /error should return 500', async () => {
+    const res = await request(app).get('/error');
+    expect(res.statusCode).toBe(500);
+    expect(res.body.error).toBe('Internal Server Error');
   });
 });
