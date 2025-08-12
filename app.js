@@ -3,10 +3,12 @@ const app = express();
 
 app.use(express.json());
 
+// Health check route
 app.get('/', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+// Echo route
 app.post('/echo', (req, res) => {
   res.json({
     receivedData: req.body,
