@@ -25,6 +25,11 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "jest": "^29.7.0"
+=======
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4"
+>>>>>>> daca046 (Add jest and supertest for testing)
   }
 }
