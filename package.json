@@ -6,10 +6,10 @@
   "directories": {
     "doc": "docs"
   },
-  "scripts": {
-    "start": "node server.js",
-    "test": "jest --runInBand"
-  },
+    "scripts": {
+  "start": "node server.js",
+  "test": "jest --runInBand"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/breeana-cordova/Vaultora.git"
