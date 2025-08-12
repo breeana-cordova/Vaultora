@@ -1,6 +1,5 @@
+// db.js
 const Database = require('better-sqlite3');
-
-// Open (or create) the database
 const db = new Database('vaultora.db');
 
 // Create tables
@@ -17,6 +16,8 @@ db.exec(`
     service TEXT NOT NULL,
     username TEXT NOT NULL,
     passwordEncrypted TEXT NOT NULL,
+    iv TEXT NOT NULL,
+    tag TEXT NOT NULL,
     FOREIGN KEY (userId) REFERENCES users(id)
   );
 `);
