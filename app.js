@@ -114,8 +114,10 @@ app.get('/credentials', authenticateToken, (req, res) => {
   );
 });
 
+// Start server only if file is run directly
 if (require.main === module) {
   app.listen(PORT, () => console.log(`Vaultora API running on port ${PORT}`));
 }
 
-module.exports = app;
+// Export everything we need for testing
+module.exports = { app, encrypt, decrypt, authenticateToken };
